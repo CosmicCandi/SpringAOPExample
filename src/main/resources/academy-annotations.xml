@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+  http://www.springframework.org/schema/context 
+  http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+  http://www.springframework.org/schema/util 
+  http://www.springframework.org/schema/util/spring-util-3.1.xsd
+  http://www.springframework.org/schema/aop 
+  http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<aop:aspectj-autoproxy />
+	
+	<util:list id="applicants" value-type="com.fdmgroup.academy.Person">	
+		<bean class="com.fdmgroup.academy.Person"><constructor-arg><value>Tony Stark</value></constructor-arg></bean>
+		<bean class="com.fdmgroup.academy.Person"><constructor-arg><value>James Bond</value></constructor-arg></bean>
+		<bean class="com.fdmgroup.academy.Person"><constructor-arg><value>James T. Kirk</value></constructor-arg></bean>
+		<bean class="com.fdmgroup.academy.Person"><constructor-arg><value>Jean-Luc Picard</value></constructor-arg></bean>
+		<bean class="com.fdmgroup.academy.Person"><constructor-arg><value>Wonder Woman</value></constructor-arg></bean>
+	</util:list>
+
+	<bean id="person" class="com.fdmgroup.academy.Person" scope="prototype" />
+
+	<bean id="ny_academy" class="com.fdmgroup.academy.Academy">
+		<constructor-arg>
+			<list />
+		</constructor-arg>
+		<constructor-arg>
+			<list />
+		</constructor-arg>
+		<constructor-arg ref="recruitment" />
+		<constructor-arg ref="sales" />
+	</bean>
+
+	<bean id="recruitment" class="com.fdmgroup.academy.RecruitmentTeam" />
+	<bean id="sales" class="com.fdmgroup.academy.SalesTeam" />
+
+
+	<bean id="annotation_logger" class="com.fdmgroup.academy.aop.AOPLoggerAnnotations" />
+
+</beans>
