@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException {
 
 		
-		ctx = new ClassPathXmlApplicationContext("academy-xml.xml");
+		ctx = new ClassPathXmlApplicationContext("academy-annotations.xml");
 		
 		// Get a List of Applicants
 		List<Person> applicants = (List<Person>)ctx.getBean("applicants");		

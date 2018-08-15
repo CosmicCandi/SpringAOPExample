@@ -40,6 +40,22 @@
 	<bean id="xml_logger" class="com.fdmgroup.academy.aop.AOPLoggerXML" />
 	
 	<!-- Add AOP Config Here -->
-	
+	<aop:config>
+		<aop:pointcut expression="execution(void com.fdmgroup.academy.Academy.runAssessment(java.util.List))" id="assessmentDay"/>
+		<aop:pointcut expression="execution(void com.fdmgroup.academy.RecruitmentTeam.assessPerson(com.fdmgroup.academy.Person))" id="assessPerson"/>
+		<aop:pointcut expression="execution(void com.fdmgroup.academy.Academy.operate())" id="logCurrentTrainees"/>
+		<aop:pointcut expression="execution(void com.fdmgroup.academy.Person.fail())" id="logTraineeFailure"/>
+		<aop:pointcut expression="execution(void com.fdmgroup.academy.Person.work())" id= "worksHard"/>
+		
+		<aop:aspect id="fdmModel" ref="xml_logger">
+			<aop:before pointcut-ref="assessmentDay" method="assessmentDay"/>
+			<aop:after-returning pointcut-ref="assessPerson" method="assessPerson"/>
+			<aop:after-throwing pointcut-ref="assessPerson" throwing="failedAssessmentException" method="assessPersonFailedAssessment"/>
+			<aop:before pointcut-ref="logCurrentTrainees" method="logCurrentTrainees"/>
+			<aop:after-returning pointcut-ref="logTraineeFailure" method="logTraineeFailure"/>
+			<aop:after-returning pointcut-ref="worksHard" method="traineeOrMountieWorksHard"/>
+		</aop:aspect>
+		
+	</aop:config>
 
 </beans>

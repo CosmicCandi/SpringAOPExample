@@ -53,33 +53,13 @@ public class Person {
 	}
 	
 	public void work(){
-		
-		// Working hard
-		
-		switch(this.status){
-			
-			case TRAINEE: 
-				/* TODO (6) Log when trainee works hard */
-				System.out.println("\t" + this + " is working hard."); 
-				break;
 				
-			case MOUNTIE: 
-				/* TODO (9) Log when mountie works hard */
-				System.out.println("\t" + this + " is working hard on site."); 
-				break;
-				
-			default: ;
-		}
-		
 	}
 	
 	public void fail(){
 		
 		// Hardly working
-		
-		/* TODO (5) Log when trainee flunks */
-		System.out.println("\t" + this + " flunked out.");
-		
+				
 	}
 	
 	public String toString(){

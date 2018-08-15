@@ -15,17 +15,10 @@ public class RecruitmentTeam {
 			
 			int badGrade = random.nextInt(75);
 			
-			/* TODO (3) Log when applicant fails assessment */
-			System.out.println("\t" + applicant + " failed assessment with a grade of " + badGrade + "%.");
-			
 			throw new FailedAssessmentException(badGrade);
 		}
 		else {
-			
 			applicant.setStream(Stream.getRandom());
-			
-			/* TODO (2) Log when applicant is accepted */
-			System.out.println("\t" + applicant	+ " is accepted into the academy.");
 		}
 	}
 

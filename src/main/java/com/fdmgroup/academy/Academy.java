@@ -28,10 +28,7 @@ public class Academy {
 	}
 
 	public void runAssessment(List<Person> people) throws InterruptedException {
-
-		/* TODO (1) Log when Assessment Day starts */
-		System.out.println("\n<<< Assessment Day: >>>");
-		System.out.println(people + "\n");
+		
 		
 		for (Person aspiringTrainee : people) {
 
@@ -56,11 +53,7 @@ public class Academy {
 
 		if (trainees.isEmpty())
 			return;
-		
-		/* TODO (4) Log current trainees before academy opens */
-		System.out.println("\n<<< Academy Opens: >>>");
-		System.out.println(trainees + "\n");
-		
+			
 		int action = -1;
 		Person person = null;
 
